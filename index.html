@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style media="screen" type="text/css">
+		
+		body {
+			border: 0pt none;
+			font-family: inherit;
+			font-size: 100%;
+			font-style: inherit;
+			font-weight: inherit;
+			margin: 0pt;
+			outline-color: invert;
+			outline-style: none;
+			outline-width: 0pt;
+			padding: 0pt;
+			vertical-align: baseline;
+		}
+
+		body {
+			position: relative;
+			margin: 3em auto 2em auto;
+			width: 68em;
+			font-family: Times New Roman, Lato, Verdana, Helvetica, sans-serif;
+			font-size: 1.0em;
+			background: #fdfdfd;
+		}
+	</style>
+	
+	<style>
+		
+		:root {
+			--color-bg: #f2f2f2;
+			--color-xg: #cbcbcb;
+			--color-ch: #30303a;
+			--color-btn: #f0f0fa;
+			--color-link: #3d8ee4; 
+			--color-border: #0b46dc;
+			--color-b: #292727;
+			--color-div: #d0d0d0;
+			--color-my: #0000ff;
+			--color-p: #0caddf;
+		}
+
+		
+		:root[theme='dark'] {
+			--color-bg: #272935;
+			--color-xg: #111217;
+			--color-ch: #e3e3f1;
+			--color-btn: #30303a;
+			--color-link: #a2bfd9;
+			--color-border: #f2d3d3;
+			--color-b: #e9adad;
+			--color-div: #4b4b4b;
+			--color-my: #2d67db;
+			--color-p: #86abcb;
+		}
+
+		:root * {
+			
+			transition: background-color 0.3s, color 0.3s;
+		}
+
+		body {
+			position: relative;
+			background: linear-gradient(to bottom,
+					var(--color-bg) 0%,
+					var(--color-bg) 96.5%,
+					var(--color-xg) 96.5%,
+					var(--color-xg) 100%);
+			
+			
+		}
+
+		button {
+			position: absolute;
+			top: -1%;
+			right: -4em;
+			height: 3em;
+			width: 3em;
+			border-radius: 50%;
+			border: none;
+			outline: none;
+			background-color: var(--color-btn);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+		}
+
+		a:link {
+			text-decoration: underline;
+			TEXT-DECORATION: none;
+		}
+
+		a:visited {
+			text-align: left;
+			text-decoration: underline;
+			TEXT-DECORATION: none;
+		}
+
+		a:hover {
+			color: #ec8435;
+			text-decoration: underline;
+			TEXT-DECORATION: none;
+		}
+
+		a:active {
+			color: #de123b;
+			text-decoration: none;
+		}
+
+		p,
+		b,
+		td,
+		h2,
+		i,
+		a,
+		ul,
+		ul li,
+		pre,
+		textarea {
+			color: var(--color-ch);
+			font-family: Comic Sans MS, Times, serif;
+			
+		}
+
+		.myself {
+			color: var(--color-my)
+		}
+
+		.paper {
+			color: var(--color-p)
+		}
+
+		pre {
+			font-size: 0.76em;
+		}
+
+		ul li {
+			font-size: 1.3em;
+		}
+
+		.dy {
+			color: var(--color-link);
+			font-family: Comic Sans MS, Times, serif;
+			
+		}
+
+		i,
+		a {
+			color: var(--color-link);
+			font-family: Comic Sans MS, Times, serif;
+			
+		}
+
+		.news {
+			color: var(--color-b);
+		}
+
+		textarea {
+			background-color: var(--color-bg);
+			width: 63em;
+			font-size: 0.76em;
+			resize: none;
+			border: 1.8px solid var(--color-border);
+			padding-left: 0.6em;
+			padding-top: 0.5em;
+			min-height: 100px;
+		}
+
+		textarea_div {
+			background-color: var(--color-bg);
+			resize: none;
+			width: 63em;
+			font-size: 0.76em;
+			border: 1.8px solid var(--color-border);
+			padding-left: 0.6em;
+			padding-top: 0.5em;
+			min-height: 100px;
+			overflow-x: hidden;
+			overflow-y: auto;
+
+		}
+
+		[contentEditable=true]:empty:not(:focus):before {
+			content: attr(data-text);
+		}
+
+
+		i:hover {
+			color: #eb7f7f
+		}
+
+		.aaa:hover {
+			color: #ec90c7
+		}
+
+		button>svg {
+			height: 3em;
+			width: 3em;
+			fill: var(--color-ch);
+			stroke: none;
+		}
+
+		button>svg:nth-child(2) {
+			display: none;
+		}
+
+		nav {
+			background-color: var(--color-bg);
+			padding: 10px;
+			font-family: Comic Sans MS, Times, serif;
+		}
+
+		nav a {
+			text-decoration: none;
+			color: var(--color-link);
+			padding: 10px 20px;
+			position: relative;
+			transition: all 0.3s ease;
+		}
+
+		nav a:hover {
+			text-decoration: none;
+		}
+
+		nav a::before {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 0;
+			height: 3px;
+			background-color: gray;
+			transition: width 0.3s ease;
+		}
+
+		nav a:hover::before {
+			width: 100%;
+		}
+
+		.divider {
+			border-top: 1px solid var(--color-div);
+			margin: 10px 0 0px 0;
+			width: 100%;
+		}
+
+		.divide {
+			border-top: 1px solid var(--color-div);
+			margin: 10px 0 -5px 0;
+		}
+
+		@media (prefers-color-scheme: dark) {
+
+			
+			:root {
+				--color-bg: #272935;
+				--color-xg: #111217;
+				--color-ch: #e3e3f1;
+				--color-btn: #30303a;
+				--color-link: #a2bfd9;
+				--color-border: #f2d3d3;
+				--color-b: #e9adad;
+				--color-div: #4b4b4b;
+				--color-my: #2d67db;
+				--color-p: #86abcb;
+				;
+			}
+
+			
+			:root[theme='dark'] {
+				--color-bg: #f2f2f2;
+				--color-xg: #cbcbcb;
+				--color-ch: #30303a;
+				--color-btn: #f0f0fa;
+				--color-link: #3d8ee4; 
+				--color-border: #0b46dc;
+				--color-b: #292727;
+				--color-div: #d0d0d0;
+				--color-my: #0000ff;
+				--color-p: #0caddf;
+			}
+		}
+	</style>
+
+	<script type="text/javascript">
+		function autoResize(id) {
+			const textArea = document.getElementById(id);
+			textArea.style.height = "auto";
+			textArea.style.height = (textArea.scrollHeight) + "px";
+		}
+	</script>
+
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?1ec4ad5c61857459aa78d5ee7ddee28d";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script src="http://cdn.staticfile.org/jquery/2.0.0/jquery.min.js">
+	</script>
+
+	<script>
+		$(function () {
+			$(".bu").click(function () {
+				if ($('.bib' + $(this).attr("id")).css("display") != "none") {
+					$('.bib' + $(this).attr("id")).css("display", "none");
+				} else {
+					if ($('.ab' + $(this).attr("id")).css("display") != "none") {
+						$('.ab' + $(this).attr("id")).css("display", "none");
+					}
+					$('.bib' + $(this).attr("id")).css("display", "block");
+				}
+				const textArea = document.getElementById('mybib' + $(this).attr("id"));
+				textArea.style.height = "auto";
+				textArea.style.height = (textArea.scrollHeight) + "px";
+			})
+			$(".au").click(function () {
+				if ($('.ab' + $(this).attr("id")).css("display") != "none") {
+					$('.ab' + $(this).attr("id")).css("display", "none");
+				} else {
+					if ($('.bib' + $(this).attr("id")).css("display") != "none") {
+						$('.bib' + $(this).attr("id")).css("display", "none");
+					}
+					$('.ab' + $(this).attr("id")).css("display", "block");
+				}
+				const textArea = document.getElementById('myab' + $(this).attr("id"));
+				textArea.style.height = "auto";
+				textArea.style.height = (textArea.scrollHeight) + "px";
+			})
+		})
+
+		$(function () {
+			$.fn.autoHeight = function () {
+				function autoHeight(elem) {
+					elem.style.height = 'auto';
+					elem.scrollTop = 0; 
+					elem.style.height = elem.scrollHeight + 'px';
+				}
+				this.each(function () {
+					autoHeight(this);
+					$(this).on('keyup', function () {
+						autoHeight(this);
+					});
+				});
+			}
+			$('textarea[autoHeight]').autoHeight();
+		})
+	</script>
+</head>
+
+<body>
+	<button>
+		<svg viewBox="0 0 24 24">
+			<path
+				d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z">
+			</path>
+		</svg>
+		<svg viewBox="0 0 24 24">
+			<path
+				d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z">
+			</path>
+		</svg>
+	</button>
+	<script>
+		const root = document.documentElement;
+		const button = document.querySelector('button');
+		const svgs = document.querySelectorAll('button>svg');
+		const text = document.querySelector('p');
+
+		button.onclick = () => {
+			if (!root.hasAttribute('theme')) { 
+				root.setAttribute('theme', 'dark'); 
+				
+				svgs[0].style.display = 'none';
+				svgs[1].style.display = 'block';
+
+			} else {
+				root.removeAttribute('theme'); 
+				svgs[1].style.display = 'none';
+				svgs[0].style.display = 'block';
+
+			}
+		};
+	</script>
+	<script type="text/javascript">
+		
+
+		var ua = navigator.userAgent;
+
+		var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+
+			isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+
+			isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+
+			isMobile = isIphone || isAndroid;
+
+		
+
+		if (isMobile) {
+			
+			var devicewidth = document.documentElement.clientWidth;
+			var devicewidth2 = window.screen.width;
+			console.log(devicewidth2);
+			console.log(devicewidth);
+			
+			var scale = devicewidth / 1200; 
+			console.log(scale);
+
+			document.getElementById("view").setAttribute('content', "user-scalable=yes, width=device-width, initial-scale=" + scale);
+
+		} else {
+
+		}
+
+
+	</script>
+	<nav>
+		
+		<font size="5"><a href="#biography" target="_self">Biography</a></font>
+		
+		
+		
+		
+		
+		
+	</nav>
+	
+	<div class="divider"></div>
+	<table align="center">
+		
+		<td align="center"><a href="assets/img/head.jpg" target="_self"><img border=0 style="border-radius:10em;"
+					height="228em" src="assets/img/head.jpg"></a>
+		</td> 
+		
+		<td align="center">&nbsp</td>
+		<td align="center">&nbsp</td>
+		<td align="center">
+		<td align="center">
+			<h2>
+				<font face="Roboto" size=+3>Jiahao Li</font>&emsp;
+				<b>
+					<font face="宋体" size=+3>李佳壕</font>
+				</b>
+			</h2>
+			<p>
+				<font size=+1>
+					<font size=+2 face="Comic Sans MS">👨‍💻 Researcher @ Qwen Team, Alibaba Group</font><br/>
+				</font>
+			</p>
+			<p style="margin-top: -0.4cm; margin-bottom: 0.2cm;">
+				<font size=+1>
+					<font size=+2>📧</font> 
+					<i><b><a href="jiahaoli.jh@foxmail.com"><font size=+1 face="Comic Sans MS">jiahaoli.jh@foxmail.com</font></b></i></a>
+				</font>
+			</p>
+
+			
+			<div style="display: inline-block; margin-top:0%">
+				<a href="https://scholar.google.com/citations?user=KYpxwREAAAAJ" target="_self">
+					<font size=4><i class="ai ai-google-scholar ai-3x"></i></font>
+				</a>
+			</div>
+			&emsp;
+			
+			
+			
+			<div style="display: inline-block; margin-bottom:0.0cm">
+				<a href="https://github.com/xljh0520" target="_self">
+					<font size=4><i class="fa fa-github fa-3x" class="dy" aria-hidden="true"></i>
+					</font>
+				</a>
+			</div>
+			
+			&emsp;
+			
+			
+		</td>
+		</td>
+		</tr>
+	</table>
+	<br />
+	
+	<div style="margin-top: 0cm" id="biography">
+		<h2>
+			<b>
+				<font face="Roboto" size=+3>📝 Biography </font>
+			</b>
+		</h2>
+		<div class="divide"></div>
+		<div class="app" style="margin-top: 0em">
+			<p>
+				<font size="4.5" face="Comic Sans MS">
+					- I am now working on visual foundation models (<a href="https://github.com/QwenLM/Qwen-Image">Qwen-Image</a>) in Qwen Team at Alibaba Group. <b>If you are interested in <span style="color: red;">building next-generation visual foundation models</span>, feel free to email me at <a href="mailto:jiahaoli.jh@foxmail.com">jiahaoli.jh@foxmail.com</a>. We are hiring interns and FTEs!</b>
+					<br><br>
+
+					- I earned my Master’s degree from Zhejiang University under the supervision of <a href="https://scholar.google.com/citations?user=iGA10XoAAAAJ&hl">Dr. Xiaohan Wang</a>, <a href="https://scholar.google.com/citations?user=8IE0CfwAAAAJ&hl">Dr. Zongxin Yang</a> and <a href="https://scholar.google.com/citations?user=RMSuNFwAAAAJ&hl">Prof. Yi Yang</a>. Prior to that, I received my Bachelor of Engineering (B.E.) degree from Nankai University. 
+					<br><br>
+
+
+					- My research interests lie in <b><u> image & video generation, unified understanding and generation models</b></u>, including but not limited to: pretraining efficiency optimization, preference alignment in post-training, and automated data curation and cleaning.
+					
+					
+					<br><br>
+					<span style="font-style: italic; color: orange;">Last Update: 2025-09 (github.io)</span>
+
+				</font>
+			</p>
+		</div>
+		
+		<div class="app" style="margin-top: 0em">
+			
+			<div style="float:left;width:100%;">
+				<h2><font face="Roboto" size=+2>📖 Education & Internship</font></h2>
+				<font size="4" face="Comic Sans MS" style="color: var(--color-ch);">
+
+					&emsp;&emsp;<font size="4"><i class="fa fa-briefcase"></i> Research Intern, Tencent Youtu Lab, 2023.06~2023.09</font>
+					<br>
+
+					&emsp;&emsp;<font size="4"><i class="fa fa-briefcase"></i> Research Intern, Alibaba DAMO Academy (M6&OFA Team), 2022.06~2023.06</font>
+					<br>
+
+					&emsp;&emsp;<font size="4"><i class="fa fa-graduation-cap"></i> Master, Computer Science, 2021-2024</font>
+					<br>
+					<font size="3">&emsp;&emsp;&emsp;&emsp;</font>
+					<font size="4" color="a9a9ae">School of Software, Zhejiang University</font>
+					<br><br>
+
+					&emsp;&emsp;<font size="4"><i class="fa fa-graduation-cap"></i> Undergraduate, Chemistry, 2017-2021</font>
+					<br>
+					<font size="3">&emsp;&emsp;&emsp;&emsp;</font>
+					<font size="4" color="a9a9ae">School of Chemistry, Nankai University</font>
+				</font>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+
+	
+	<div style="margin-top: 3em" id="news">
+		<h2>
+			<b>
+				<font face="Roboto" size=+3>🔥 News </font>
+			</b>
+		</h2>
+		<div class="divide"></div>
+			<ul>
+				
+				<br>
+
+				<li>
+					<font size="4.5" face="Comic Sans MS">Aug, 2025. Qwen-Image is released ! Check our tech report here: <a href="https://arxiv.org/abs/2508.02324" target="_self">Qwen-Image Technical Report</a></font> &nbsp; <div style="display: inline-block; margin-top:0.5%; width:50%">
+						
+						<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+							<u><font size="4">Paper:</font></u>
+							<a href="https://arxiv.org/abs/2508.02324">
+								<img alt="Static Badge" src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
+							</a>
+						</div>
+						&nbsp;
+						<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+							<u><font size="4">Project:</font></u>
+							<a href="https://github.com/QwenLM/Qwen-Image">
+								<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f" style="height: 1em;">
+							</a>
+						</div>
+						&nbsp;
+						<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+							<u><font size="4">Blog:</font></u>
+							<a href="https://qwenlm.github.io/blog/qwen-image/" target="_blank">
+								<img alt="qwen blog" src="https://img.shields.io/badge/qwen's_blog-222222?style=flat&logo=book&logoColor=white" style="height: 1em;">
+							</a>
+						</div>
+						
+					</div>
+				</li>
+
+
+				
+
+			</ul>
+		</div>
+
+	<div style="margin-top: 3em" id="awards">
+		<h2>
+			<b>
+				<font face="Roboto" size=+3>🏆 Awards </font>
+			</b>
+		</h2>
+		<div class="divide"></div>
+		<ul>
+			<li>
+				<font size="4" face="Comic Sans MS">1st in the VOTS 2023 challenge. ICCV 2023 </font>
+			</li>
+			<br>
+			<li>
+				<font size="4" face="Comic Sans MS">1st in TREK-150 Object Tracking of EPIC-Kitchens Dataset Challenges. CVPR 2023</font>
+			</li>
+			<br>
+			<li>
+				<font size="4" face="Comic Sans MS">1st in Semi-Supervised Video Object Segmentation of EPIC-Kitchens Dataset Challenges. CVPR 2023</font>
+			</li>
+		</ul>
+	</div>
+
+
+
+
+	<div id="copyright" align="right">
+		<br />
+		<br />
+		<p>Template From &copy; 2024 Huanxuan Liao</p>
+	</div>
+	<br />
+
+</body>
+
+</html>
